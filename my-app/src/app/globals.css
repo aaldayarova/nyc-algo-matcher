@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f4ea;
+  --main-text-color: #095A69;
+  --text-font: 'Nunito', sans-serif;
+  --header-font: 'Futura', sans-serif;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+h1, h2, h3 {
+  font-family: var(--header-font);
+  color: var(--main-text-color);
+}
+
+h2 {
+  font-size: 250%;
+}
+
+h4 {
+  font-family: var(--text-font);
+  color: var(--main-text-color);
+  font-size: 200%;
+  font-weight: 10;
+}
+
+p {
+  font-family: var(--text-font);
+}
+
+.custom-btn {
+  width: 300px;           
+  height: 60px; 
+  background-color: #eae3d2;
+  color: #085a69;
+  border-radius: 40px;
+  border-color: #085a69;
+  border-width: 2px;
+  font-size: x-large;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.custom-btn:hover {
+  background-color: #b8e1e8;
+  color: #085a69;
+}
+
+.landing-logo {
+  width: 180px;
+  height: auto;
+  display: block;
+  margin: 75px auto 0 auto; /* top, right, bottom, left */
+}
