@@ -36,11 +36,11 @@ h2 {
   font-size: 250%;
 }
 
-h4 {
+h5 {
   font-family: var(--text-font);
   color: var(--main-text-color);
-  font-size: 200%;
-  font-weight: 10;
+  font-size: 180%;
+  line-height: 1.2;
 }
 
 p {
@@ -56,6 +56,7 @@ p {
   border-color: #085a69;
   border-width: 2px;
   font-size: x-large;
+  font-family: var(--text-font);
   padding: 10px 20px;
   transition: background-color 0.3s ease;
   text-align: center;
