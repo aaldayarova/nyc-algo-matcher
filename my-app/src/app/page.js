@@ -1,3 +1,4 @@
+import AlgoCard from '@/components/features/AlgoCard';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
 
@@ -15,6 +16,10 @@ export default function LandingPage() {
         <div className="flex gap-4">
           <Button>Start Survey</Button>
           <Button>Learn More</Button>
+          <AlgoCard 
+            name="Test Algorithm"
+            src="/NYC-Algomatcher_Logo.png"
+          />
         </div>
       </main>
     </div>
