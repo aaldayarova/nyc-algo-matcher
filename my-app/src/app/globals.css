@@ -102,3 +102,10 @@ p {
   border-color: var(--main-text-color);
   border-width: 2px;
 }
+
+.data-card-title {
+  font-family: var(--header-font);
+  color: var(--main-text-color);
+  font-size: 100%;
+  line-height: 1.2;
+}

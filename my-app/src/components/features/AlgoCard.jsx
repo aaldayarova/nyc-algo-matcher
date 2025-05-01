@@ -32,7 +32,7 @@ export default function AlgoCard({
       </div>
 
       {/* Middle Row: Left and Right */}
-      <div className="flex flex-col md:flex-row md:space-x-6">
+      <div className="flex flex-col md:flex-row md:gap-6">
         {/* Left Side */}
         <div className="md:w-1/4 flex flex-col space-y-4">
           {/* Image Box */}
