@@ -23,7 +23,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: var(--header-font);
   color: var(--main-text-color);
 }
@@ -36,6 +37,10 @@ h3 {
   font-size: 200%;
 }
 
+h4 {
+  font-size: 150%;
+}
+
 h5 {
   font-family: var(--text-font);
   color: var(--main-text-color);
@@ -45,6 +50,7 @@ h5 {
 
 p {
   font-family: var(--text-font);
+  color: var(--main-text-color);
 }
 
 .custom-btn {
@@ -67,6 +73,17 @@ p {
   color: #085a69;
 }
 
+.algo-card-btn {
+  width: 100%; /* full width of parent */
+  max-width: 200px; /* but no wider than 200px */
+  height: auto; /* let height grow naturally */
+  padding: 0.5rem 1rem; /* responsive padding */
+  background-color: #b8e1e8;
+  border-radius: 40px;
+  text-align: center;
+  font-size: 1rem; /* scalable with rem units */
+}
+
 .landing-logo {
   width: 180px;
   height: auto;
@@ -78,4 +95,10 @@ p {
   border-color: var(--main-text-color);
   border-width: 2px;
   background-color: var(--lighter-background);
+}
+
+.algo-image {
+  background-color: var(--background);
+  border-color: var(--main-text-color);
+  border-width: 2px;
 }

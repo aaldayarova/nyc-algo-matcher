@@ -1,7 +1,3 @@
-export default function Button({ children }) {
-    return (
-      <div className="btn custom-btn">
-        {children}
-      </div>
-    );
-  }
+export default function Button({ children, className = "" }) {
+  return <div className={`btn custom-btn ${className}`}>{children}</div>;
+}
