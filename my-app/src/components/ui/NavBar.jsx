@@ -13,7 +13,7 @@ export default function NavBar() {
     });
   
     return (
-      <nav className="w-full flex justify-between items-center px-8 py-5 bg-[#fcfaf6] shadow-sm">
+        <nav className="w-full flex justify-between items-center px-8 py-5 bg-white shadow-sm">
         <div className="flex items-center space-x-5">
           <Link href="/">
             <img
@@ -38,8 +38,8 @@ export default function NavBar() {
           <Link href="/survey" style={navLinkStyle("/survey")}>
             Survey
           </Link>
-          <Link href="/background" style={navLinkStyle("/background")}>
-            Background
+          <Link href="/learn-more" style={navLinkStyle("/learn-more")}>
+            Learn More
           </Link>
           <Link href="/contact" style={navLinkStyle("/contact")}>
             Contact

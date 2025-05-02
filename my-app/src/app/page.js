@@ -2,6 +2,7 @@ import AlgoCard from "@/components/features/AlgoCard";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 
+
 export default function LandingPage() {
   return (
     <div className="flex flex-col items-center min-h-screen pt-4 px-8 pb-20 gap-16 sm:pt-8 sm:px-20">
@@ -23,7 +24,9 @@ export default function LandingPage() {
           All algorithms featured in this tool are from the 2023 report.
         </h5>
         <div className="flex gap-4">
+        <Link href="/survey">
           <Button>Start Survey</Button>
+        </Link>
           <Button>Learn More</Button>
           <AlgoCard
             name="Facial Recognition (New York Police Department)"
