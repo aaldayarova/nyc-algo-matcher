@@ -1,11 +1,14 @@
 "use client";
 
+import FadeInSection from "../../components/ui/FadeInSection";
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import QuestionCard from "../../components/ui/QuestionCard";
 import ProgressBar from "../../components/ui/ProgressBar";
 import algoMappings from "../../lib/algorithmMappings";
 import AlgoCard from "../../components/features/AlgoCard"; 
+import { useRef } from "react";
+
 
 const questions = [
   "Have you ever applied for housing assistance through Homebase?",
@@ -26,33 +29,24 @@ const questions = [
   "Have you appeared in a media production (e.g., photo or video) created by the City of New York?",
   "Have you ever needed emergency medical care from an FDNY ambulance in NYC?"
 ];
-
 export default function SurveyPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [responses, setResponses] = useState([]);
+  const [copied, setCopied] = useState(false);
+  const [showSurvey, setShowSurvey] = useState(true);
+  const surveyRef = useRef(null);
+  const resultsRef = useRef(null);
+  const matchedToolCount = responses.filter((resp, i) => resp === "yes" && algoMappings[i]).length;
+
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [collapsed, setCollapsed] = useState(false);
 
-  useEffect(() => {
-    console.log("responses:", responses);
-  }, [responses]);
-
-  useEffect(() => {
-    const matched = responses
-      .map((r, i) => r === "yes" ? algoMappings[i] : null)
-      .filter(Boolean);
-    console.log("matched algo cards:", matched);
-  }, [responses]);
-
-  // Save answers to URL
   const updateURLWithResponses = (responsesArray) => {
     const compact = responsesArray.map((r) => r === "yes" ? 1 : r === "no" ? 0 : "x").join("-");
     const newUrl = `${window.location.pathname}?ans=${compact}`;
     window.history.replaceState(null, "", newUrl);
   };
 
-  // Hydrate state from URL
   useEffect(() => {
     const ans = new URLSearchParams(window.location.search).get("ans");
     if (ans) {
@@ -74,76 +68,102 @@ export default function SurveyPage() {
   };
 
   useEffect(() => {
-    if (responses.length === questions.length && responses.every(r => r)) {
-      setCollapsed(true);
+    const allAnswered = responses.length === questions.length && responses.every(r => r);
+    if (allAnswered) {
+      setShowSurvey(false);
+      setTimeout(() => {
+        resultsRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 400);
     }
   }, [responses]);
-  
+
   const answeredCount = responses.filter((r) => r === "yes" || r === "no").length;
-  console.log("algoMappings length:", algoMappings.length);
-  console.log("algoMappings sample:", algoMappings[0]);
-  
+
   return (
     <div className="max-w-3xl mx-auto px-6 py-10">
       <div className="text-center mb-6">
-        <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: "var(--header-font)", color: "var(--main-text-color)" }}>
-          Tell us about your NYC experiences
-        </h2>
-        <p className="text-lg" style={{ fontFamily: "var(--text-font)", color: "var(--main-text-color)" }}>
+        <h2 className="text-3xl font-bold mb-2">Tell us about your NYC experiences</h2>
+        <p className="text-lg">
           Answer 17 <em>yes</em> or <em>no</em> questions to access your personalized NYC AlgoMatcher report
         </p>
       </div>
 
       <div className="flex justify-between items-center mb-2">
         <p className="text-md font-medium" style={{ fontFamily: "var(--text-font)", color: "var(--main-text-color)" }}>
-          Progress:
+          Progress: 
         </p>
         <p className="text-md font-medium" style={{ fontFamily: "var(--text-font)", color: "var(--main-text-color)" }}>
           {Math.round((answeredCount / questions.length) * 100)}%
         </p>
-      </div>
+        </div>
       <ProgressBar value={(responses.length / questions.length) * 100} />
+    
+      {showSurvey && (
+        <div ref={surveyRef} className="mt-6 space-y-4">
+          {questions.slice(0, currentIndex + 1).map((q, idx) => (
+            <QuestionCard
+              key={idx}
+              question={q}
+              selectedAnswer={responses[idx]}
+              onAnswer={(ans) => handleAnswer(idx, ans)}
+            />
+          ))}
+        </div>
+      )}
 
-      <div className="mt-6">
-        {questions.slice(0, currentIndex + 1).map((q, idx) => (
-          <QuestionCard
-            key={idx}
-            question={q}
-            selectedAnswer={responses[idx]}
-            onAnswer={(ans) => handleAnswer(idx, ans)}
-          />
-        ))}
-      </div>
-      
+      {!showSurvey && (
+        <div className="flex justify-end mt-2">
+          <button
+            onClick={() => {
+              setShowSurvey(true);
+              setTimeout(() => {
+                surveyRef.current?.scrollIntoView({ behavior: "smooth" });
+              }, 150);
+            }}
+            className="text-sm underline text-teal-800 hover:text-teal-600"
+          >
+            Edit Responses
+          </button>
+        </div>
+      )}
+
       {answeredCount === questions.length && (
-        <div className="mt-10">
-          <h2 className="text-xl font-semibold mb-4 text-center">
-            Algorithms Potentially Using Your Data
-          </h2>
+        <div ref={resultsRef} className="h-4">
+        <div className="mt-16 text-left border-t pt-10">
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold mb-2">Your NYC AlgoMatcher Report</h2>
+            <p className="text-lg">These are the <span className="font-semibold">{matchedToolCount}</span> algorithmic tools potentially using your data:
+            </p>
+          </div>
           <div className="grid gap-4">
             {responses.map((resp, i) =>
               resp === "yes" && algoMappings[i] ? (
-                <AlgoCard
-                  key={i}
-                  name={algoMappings[i].name}
-                  src={algoMappings[i].src}
-                  summary={algoMappings[i].summary}
-                  use={algoMappings[i].use}
-                  application={algoMappings[i].application}
-                  datacard_title1={algoMappings[i].datacard_title1}
-                  datacard_text1={algoMappings[i].datacard_text1}
-                  datacard_title2={algoMappings[i].datacard_title2}
-                  datacard_text2={algoMappings[i].datacard_text2}
-                  datacard_title3={algoMappings[i].datacard_title3}
-                  datacard_text3={algoMappings[i].datacard_text3}
-                  datacard_title4={algoMappings[i].datacard_title4}
-                  datacard_text4={algoMappings[i].datacard_text4}
-                  datacard_title5={algoMappings[i].datacard_title5}
-                  datacard_text5={algoMappings[i].datacard_text5}
-                />
+                  <AlgoCard key={i} {...algoMappings[i]} />
               ) : null
             )}
           </div>
+          </div>
+                <FadeInSection>
+                <div className="mt-16 text-center border-t pt-10">
+                  <h3 className="text-1xl font-semibold mb-2 text-teal-900">
+                    Share your results
+                  </h3>
+                  <p className="mb-4 text-gray-700">
+                    Let others know how NYC algorithms might affect you.
+                  </p>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(window.location.href);
+                      setCopied(true);
+                      setTimeout(() => setCopied(false), 2000);
+                    }}
+                    className="bg-teal-700 hover:bg-teal-800 text-white px-6 py-2 rounded transition"
+                  >
+                    {copied ? "Copied!" : "Copy Link"}
+                  </button>
+                </div>
+                </FadeInSection>
+                
         </div>
       )}
     </div>

@@ -37,7 +37,7 @@ export default function ContactPage() {
           email="msd249@cornell.edu"
         />
       </div>
-
+      
       <h3 className="text-4xl font-bold text-teal-900">Advisors</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-16 justify-items-center">

@@ -22,7 +22,7 @@ export default function AlgoCard({
   return (
     <div className="algo-card p-6 rounded-lg max-w-7xl mx-auto space-y-6 shadow-md">
       {/* Top Row: Algo Name and Small Logo*/}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between text-left">
         <h3>{name}</h3>
         {/* <img
           src={logo}
