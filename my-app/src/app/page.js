@@ -30,23 +30,6 @@ export default function LandingPage() {
         <Link href="/background">
           <Button>Learn More</Button>
         </Link>
-          <AlgoCard
-            name="Facial Recognition (New York Police Department)"
-            src="/6. Facial Recognition.png"
-            summary="An image-matching tool used to assist in identifying individuals in city investigations."
-            use="It compares input images to reference databases and returns possible matches with ranked confidence levels."
-            application="If an image of you was included in a DOI case, this tool could have been used to identify you."
-            datacard_title1="Training Data"
-            datacard_text1="Not disclosed."
-            datacard_title2="Input Data"
-            datacard_text2="Still images or video frames."
-            datacard_title3="Output Data"
-            datacard_text3="Ranked identity matches."
-            datacard_title4="Vendor Involvement"
-            datacard_text4="Commercial software (vendor not named)."
-            datacard_title5="Identifying Information"
-            datacard_text5="Yes — biometric data is used."
-          />
         </div>
       </main>
     </div>
