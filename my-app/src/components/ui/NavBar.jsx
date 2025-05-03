@@ -38,7 +38,7 @@ export default function NavBar() {
           <Link href="/survey" style={navLinkStyle("/survey")}>
             Survey
           </Link>
-          <Link href="/learn-more" style={navLinkStyle("/learn-more")}>
+          <Link href="/background" style={navLinkStyle("/background")}>
             Learn More
           </Link>
           <Link href="/contact" style={navLinkStyle("/contact")}>

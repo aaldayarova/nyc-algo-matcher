@@ -26,8 +26,10 @@ export default function LandingPage() {
         <div className="flex gap-4">
         <Link href="/survey">
           <Button>Start Survey</Button>
-        </Link>
+          </Link>
+        <Link href="/background">
           <Button>Learn More</Button>
+        </Link>
           <AlgoCard
             name="Facial Recognition (New York Police Department)"
             src="/6. Facial Recognition.png"

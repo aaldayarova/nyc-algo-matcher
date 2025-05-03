@@ -20,7 +20,7 @@ export default function AlgoCard({
   datacard_text5,
 }) {
   return (
-    <div className="algo-card p-6 rounded-lg max-w-5xl mx-auto space-y-6 shadow-md">
+    <div className="algo-card p-6 rounded-lg max-w-7xl mx-auto space-y-6 shadow-md">
       {/* Top Row: Algo Name and Small Logo*/}
       <div className="flex items-center justify-between">
         <h3>{name}</h3>
@@ -47,9 +47,16 @@ export default function AlgoCard({
           </div>
 
           {/* Button */}
-          <Button className="algo-card-btn w-full max-w-[200px] h-auto px-4 py-2 text-base">
-            Click to Learn More
-          </Button>
+          <a
+            href="https://www.nyc.gov/assets/oti/downloads/pdf/reports/2024-algorithmic-tools-report.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full max-w-[200px]"
+          >
+            <Button className="algo-card-btn w-full h-auto px-4 py-2 text-base">
+              Click to Learn More
+            </Button>
+          </a>
         </div>
 
         {/* Right Side */}
