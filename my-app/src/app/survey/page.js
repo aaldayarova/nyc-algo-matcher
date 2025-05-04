@@ -161,11 +161,14 @@ export default function SurveyPage() {
                   >
                     {copied ? "Copied!" : "Copy Link"}
                   </button>
+                  <div className="mt-16 mb-20 text-center pt-10"></div>
                 </div>
                 </FadeInSection>
                 
         </div>
+        
       )}
     </div>
+    
   );
 }
