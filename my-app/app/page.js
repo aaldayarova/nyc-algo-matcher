@@ -3,7 +3,7 @@ import Button from "@/components/ui/Button";
 import Link from "next/link";
 
 
-export default function Page() {
+export default function LandingPage() {
   return (
     <div className="flex flex-col items-center min-h-screen pt-4 px-8 pb-20 gap-16 sm:pt-8 sm:px-20">
       <main className="flex flex-col gap-[32px] items-center">
