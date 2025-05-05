@@ -1,4 +1,4 @@
-const algomappings = [
+const algoMappings = [
     {
       "name": "Homebase Risk Assessment Questionnaire (NYC DSS)",
       "src": "/1. Homebase.png",
@@ -290,4 +290,4 @@ const algomappings = [
     }
   ]
 
-export default algomappings;
+  export default algoMappings;
