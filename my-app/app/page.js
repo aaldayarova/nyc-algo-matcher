@@ -2,10 +2,10 @@ import AlgoCard from "@/components/features/AlgoCard";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 
-
 export default function Page() {
   return (
     <div className="flex flex-col items-center min-h-screen pt-4 px-8 pb-20 gap-16 sm:pt-8 sm:px-20">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <main className="flex flex-col gap-[32px] items-center">
         <img
           src="/NYC-Algomatcher_Logo.png"
@@ -24,12 +24,12 @@ export default function Page() {
           All algorithms featured in this tool are from the 2023 report.
         </h5>
         <div className="flex gap-4">
-        <Link href="/survey">
-          <Button>Start Survey</Button>
+          <Link href="/survey">
+            <Button>Start Survey</Button>
           </Link>
-        <Link href="/background">
-          <Button>Learn More</Button>
-        </Link>
+          <Link href="/background">
+            <Button>Learn More</Button>
+          </Link>
         </div>
       </main>
     </div>
