@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import ShowNavWrapper from "../components/ui/ShowNavWrapper";
+import ShowNavWrapper from "@/components/ui/ShowNavWrapper";
 
 
 const geistSans = Geist({
