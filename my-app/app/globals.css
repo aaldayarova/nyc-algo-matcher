@@ -9,13 +9,6 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -29,48 +22,15 @@ h4 {
   color: var(--main-text-color);
 }
 
-h2 {
-  font-size: 250%;
-}
-
-h3 {
-  font-size: 200%;
-}
-
-h4 {
-  font-size: 150%;
-}
-
 h5 {
   font-family: var(--text-font);
   color: var(--main-text-color);
-  font-size: 180%;
   line-height: 1.2;
 }
 
 p {
   font-family: var(--text-font);
   color: var(--main-text-color);
-}
-
-.custom-btn {
-  width: 300px;
-  height: 60px;
-  background-color: #eae3d2;
-  color: #085a69;
-  border-radius: 40px;
-  border-color: #085a69;
-  border-width: 2px;
-  font-size: x-large;
-  font-family: var(--text-font);
-  padding: 10px 20px;
-  transition: background-color 0.3s ease;
-  text-align: center;
-}
-
-.custom-btn:hover {
-  background-color: #b8e1e8;
-  color: #085a69;
 }
 
 .algo-card-btn {
@@ -82,13 +42,6 @@ p {
   border-radius: 40px;
   text-align: center;
   font-size: 1rem; /* scalable with rem units */
-}
-
-.landing-logo {
-  width: 180px;
-  height: auto;
-  display: block;
-  margin: 75px auto 0 auto; /* top, right, bottom, left */
 }
 
 .algo-card {
