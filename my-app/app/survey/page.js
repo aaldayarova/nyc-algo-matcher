@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "Answer questions to discover which NYC algorithms match your data, too.",
   openGraph: {
-    title: "My Results | NYC AlgoMatcher",
+    title: "My Results",
     description:
       "Answer questions to discover which NYC algorithms match your data, too.",
     url: "https://nyc-algo-matcher.vercel.app/survey",
