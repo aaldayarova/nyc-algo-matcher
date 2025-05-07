@@ -28,11 +28,6 @@ const questions = [
   "Have you ever needed emergency medical care from an FDNY ambulance in NYC?",
 ];
 
-export const metadata = {
-  title: "My Results",
-  description: "See which NYC algorithms match your data",
-};
-
 export default function SurveyInner() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [responses, setResponses] = useState([]);
