@@ -28,7 +28,7 @@ export const metadata = {
       "Discover which New York City algorithmic tools may be using your data",
     images: [
       {
-        url: "@/public/NYC-Algomatcher_Logo.png",
+        url: "https://nyc-algo-matcher.vercel.app/NYC-Algomatcher_Logo.png",
         width: 1200,
         height: 630,
       },
