@@ -1,6 +1,7 @@
+// layout.js
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import ShowNavWrapper from "@/components/ui/ShowNavWrapper";
+import ClientOnlyNav from "../components/ui/ClientOnlyNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +44,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Import Nunito with multiple weights */}
         <link
           href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap"
           rel="stylesheet"
@@ -52,7 +52,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ShowNavWrapper />
+        <ClientOnlyNav />
         {children}
       </body>
     </html>
